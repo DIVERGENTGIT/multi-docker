@@ -1,0 +1,34 @@
+sudo: reqired
+services:
+ - docker
+
+#building test image for running script
+
+before_install:
+ - docker build -t vikas/react-test -f ./client/Dockerfile.dev
+
+# Test cases running on test-image 
+
+script:
+ - docker run -e CI=true vikas/react-test npm test
+
+#After test cases execution building production version of dockerImages
+
+after_install:
+ - docker build -t vikas/multi-react ./client
+ - docker build -t vikas/multi-nginx ./nginx
+ - docker build -t vikas/multi-server ./server
+ - docker build -t vikas/multi-worker ./worker
+
+#Login in to the Docker CLI
+
+ - echo "DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+
+#Pusing the Production Images to DOCKER_HUB
+
+ - docker push vikas/multi-react
+ - docker push vikas/multi-nginx
+ - docker push vikas/multi-server
+ - docker push vikas/multi-worker 
+
+
