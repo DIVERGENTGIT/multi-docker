@@ -1,11 +1,11 @@
 sudo: reqired
 services:
- - docker
+  - docker
 
 #building test image for running script
 
 before_install:
- - docker build -t vikas/react-test -f ./client/Dockerfile.dev
+ - docker build -t vikas/react-test -f ./client/Dockerfile.dev ./client
 
 # Test cases running on test-image 
 
