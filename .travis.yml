@@ -10,11 +10,11 @@ before_install:
 # Test cases running on test-image 
 
 script:
- - docker run vikas/react-test npm test -- --coverage
+ - docker run -e CI=true vikas/react-test npm test
 
 #After test cases execution building production version of dockerImages
 
-after_install:
+after_success:
  - docker build -t vikas/multi-react ./client
  - docker build -t vikas/multi-nginx ./nginx
  - docker build -t vikas/multi-server ./server
