@@ -1,4 +1,4 @@
-sudo: reqired
+sudo: required
 services:
   - docker
 
@@ -26,7 +26,7 @@ after_success:
 
 #Pusing the Production Images to DOCKER_HUB
 
- - docker push vikas/multi-react
+ -su docker push vikas/multi-react
  - docker push vikas/multi-nginx
  - docker push vikas/multi-server
  - docker push vikas/multi-worker 
