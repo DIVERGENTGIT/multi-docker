@@ -15,10 +15,10 @@ script:
 #After test cases execution building production version of dockerImages
 
 after_success:
- - docker build -t vikas/multi-react ./client
- - docker build -t vikas/multi-nginx ./nginx
- - docker build -t vikas/multi-server ./server
- - docker build -t vikas/multi-worker ./worker
+ - docker build -t vikas888/multi-react ./client
+ - docker build -t vikas888/multi-nginx ./nginx
+ - docker build -t vikas888/multi-server ./server
+ - docker build -t vikas888/multi-worker ./worker
 
 #Login in to the Docker CLI
 
@@ -26,9 +26,9 @@ after_success:
 
 #Pusing the Production Images to DOCKER_HUB
 
- - docker push vikas/multi-react
- - docker push vikas/multi-nginx
- - docker push vikas/multi-server
- - docker push vikas/multi-worker 
+ - docker push vikas888/multi-react
+ - docker push vikas888/multi-nginx
+ - docker push vikas888/multi-server
+ - docker push vikas888/multi-worker 
 
 
