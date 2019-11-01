@@ -32,3 +32,19 @@ after_success:
  - docker push vikas888/multi-worker 
 
 
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-619038546570
+  bucket_path: multi-docker
+  on:
+    branch: master
+  
+  access_key_id:
+    secure: $AWS_ACCESS_ID
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+
+# MultiDocker-env.y8vxqimmjm.us-east-2.elasticbeanstalk.com
