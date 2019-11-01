@@ -22,7 +22,7 @@ after_success:
 
 #Login in to the Docker CLI
 
- - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+ - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_ID" --password-stdin
 
 #Pusing the Production Images to DOCKER_HUB
 
